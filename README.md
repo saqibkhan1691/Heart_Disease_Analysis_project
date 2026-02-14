@@ -51,10 +51,17 @@ The Tableau dashboards analyze:
 
 ## 📂 Repository Structure
 ```
-/data           → Dataset used for analysis  
-/dashboards     → Tableau dashboard files (.twb / .twbx)  
-/screenshots    → Dashboard preview images  
-README.md       → Project documentation  
+heart-disease-risk-analysis/
+│
+├── data/                # Dataset used for analysis and ML
+├── database/            # MySQL schema and SQL queries
+├── notebooks/           # Data preprocessing and ML training
+├── models/              # Trained ML models (.pkl files)
+├── app/                 # Flask web application
+├── tableau/             # Tableau dashboard link and preview
+├── requirements.txt     # Project dependencies
+├── .gitignore           # Ignored files
+└── README.md            # Project documentation
 ```
 
 ## 🔍 Key Findings
