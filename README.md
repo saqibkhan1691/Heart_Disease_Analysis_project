@@ -35,6 +35,9 @@ The Tableau dashboards analyze:
 * Urban vs Rural prevalence
 * Region-based disease distribution
 
+## Tableau Dashboard
+[View Live Dashboard](https://public.tableau.com/views/HeartDiseaseRiskAnalysisDashboard/Dashboard1?:language=en-US&publish=yes&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link)
+
 ## 🏥 Real-World Applications
 ✔ Helps cardiologists identify high-risk groups
 ✔ Supports government policy planning
