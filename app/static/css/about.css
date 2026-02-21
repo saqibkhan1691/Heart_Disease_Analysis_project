@@ -1,0 +1,22 @@
+.about-page{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:100px;
+    background:#ffffff;
+}
+
+.about-left img{
+    width:650px;
+    border-radius:12px;
+}
+
+.about-right{
+    padding-left:60px;
+    width:40%;
+}
+
+.about-right h1{
+    font-size:36px;
+    margin-bottom:20px;
+}

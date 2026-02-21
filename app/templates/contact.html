@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Contact{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<section class="contact-section">
+    <h1>Contact Us</h1>
+
+    <div class="contact-grid">
+        <div class="contact-box">
+            <h3>Email</h3>
+            <p>heartanalysis@gmail.com</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>Phone</h3>
+            <p>+91-022-5000-1234</p>
+        </div>
+
+        <div class="contact-box">
+            <h3>Address</h3>
+            <p>Ghaziabad, Uttar Pradesh</p>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

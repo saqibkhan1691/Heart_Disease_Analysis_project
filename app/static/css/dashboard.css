@@ -1,0 +1,23 @@
+.dashboard-container {
+    width: 90%;
+    margin: 40px auto;
+    text-align: center;
+}
+
+.dashboard-container h1 {
+    margin-bottom: 30px;
+    font-size: 32px;
+}
+
+.tableau-wrapper {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.tableau-wrapper iframe {
+    width: 100%;
+    height: 85vh;     /* responsive height */
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
