@@ -22,5 +22,9 @@ def story():
 def contact():
     return render_template("contact.html")
 
+@app.route("/ml-model")
+def ml_model():
+    return render_template("ml_model.html")
+
 if __name__ == "__main__":
     app.run(debug=True)

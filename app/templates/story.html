@@ -1,19 +1,45 @@
 {% extends "base.html" %}
 {% block title %}Story{% endblock %}
 
+{% block css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/story.css') }}">
+{% endblock %}
+
 {% block content %}
 
-<div class="dashboard-container">
-    <h1>Heart Disease Story</h1>
+<section class="story-section">
+
+    <div class="story-content">
+        <h1>Case Study Overview</h1>
+        <p>
+            The case study is structured as a data-driven narrative that guides users through the analysis of heart disease risk factors. It combines interactive visualizations, key insights, and actionable recommendations to create an engaging storytelling experience. The narrative is designed to be accessible to a broad audience, including healthcare professionals, policymakers, and the general public.
+        </p>
+        <p>
+            The narrative is organized into several key sections:
+        </p>
+        <p>
+            Problem Overview
+        </p>
+
+        <p>
+            Data Analysis
+        </p>
+
+        <p>
+            Key Insights
+        </p>
+
+        <p>
+            Strategic Recommendation
+        </p>
+    </div>
+
+
+
+    <div class="tableau-wrapper">
 
     <!-- Paste Tableau Story embed code here -->
-     <iframe 
-        src="https://public.tableau.com/views/HeartDiseaseRiskAnalysisDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-        width="100%" 
-        height="800px"
-        frameborder="0">
-    </iframe>
-    <div class="tableau"></div>
-</div>
-
+     <div class='tableauPlaceholder' id='viz1772516413447' style='position: relative'><noscript><a href='#'><img alt='Heart Disease Analysis ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;he&#47;heart_disease_analysis_story&#47;Story&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='heart_disease_analysis_story&#47;Story' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;he&#47;heart_disease_analysis_story&#47;Story&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1772516413447');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height='795px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    </div>
+    </section>
 {% endblock %}

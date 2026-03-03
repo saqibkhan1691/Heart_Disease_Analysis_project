@@ -15,11 +15,11 @@
 <nav class="navbar">
     <div class="logo">Heart Analysis</div>
     <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/story">Story</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+         <li><a href="/about" class="{% if request.path == '/about' %}active{% endif %}">About</a></li>
+         <li><a href="/dashboard" class="{% if request.path == '/dashboard' %}active{% endif %}">Dashboard</a></li>
+         <li><a href="/story" class="{% if request.path == '/story' %}active{% endif %}">Story</a></li>
+         <li><a href="/contact" class="{% if request.path == '/contact' %}active{% endif %}">Contact</a></li>
         <li><a class="btn" href="/dashboard">Get Started</a></li>
     </ul>
 </nav>
