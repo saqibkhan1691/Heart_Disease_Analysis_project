@@ -56,22 +56,3 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 8px 15px rgba(75, 91, 220, 0.3);
 }
-
-/* .nav-links a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    left: 0;
-    bottom: -4px;
-    background-color: #4b5bdc;
-    transition: width 0.1s ease;
-}
-
-.nav-links a.active {
-    color: #4b5bdc;
-}
-
-.nav-links a.active::after {
-    width: 100%;
-}

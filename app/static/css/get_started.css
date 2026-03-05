@@ -1,0 +1,126 @@
+.main-container {
+    max-width: 1300px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.layout {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    flex: 1;
+}
+
+/* LEFT PANEL */
+.feature-card {
+    max-width: 300px;
+}
+
+.feature-list {
+    max-height: 350px;
+    overflow-y: auto;
+    margin: 15px 0;
+    padding-right: 10px;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.feature-item input {
+    margin-right: 10px;
+}
+
+.primary-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    background: #2d6cdf;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* RISK GAUGE */
+.risk-card {
+    text-align: center;
+}
+
+.gauge {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    background: conic-gradient(#2ecc71 0%, #f1c40f 50%, #e74c3c 100%);
+    margin: 20px auto;
+}
+
+.gauge-fill {
+    position: absolute;
+    inset: 15px;
+    background: white;
+    border-radius: 50%;
+}
+
+.gauge-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.risk-note {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #777;
+}
+
+/* HISTOGRAM STYLE */
+.improvement-card {
+    text-align: center;
+}
+
+.histogram {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    height: 200px;
+    margin: 20px 0;
+}
+
+.bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bar {
+    width: 60px;
+    border-radius: 6px;
+    transition: height 0.6s ease;
+}
+
+.current-bar {
+    background: #f39c12;
+}
+
+.improved-bar {
+    background: #27ae60;
+}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% block content %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/get_started.css') }}">
+
+<div class="main-container">
+
+    <h1 class="page-title">Heart Disease Risk Prediction</h1>
+
+    <div class="layout">
+
+        <!-- LEFT PANEL -->
+        <div class="card feature-card">
+
+            <h3>Select Factors to Predict</h3>
+            <p class="sub-text">Choose lifestyle factors you'd like to consider:</p>
+
+            <div class="feature-list" id="featureList">
+                {% for feature in features %}
+                <label class="feature-item">
+                    <input type="checkbox" value="{{ feature }}" class="improve-check">
+                    <span>{{ feature }}</span>
+                </label>
+                {% endfor %}
+            </div>
+
+            <button id="simulateBtn" class="primary-btn">
+                Simulate Improvement
+            </button>
+
+        </div>
+
+
+        <!-- CENTER RISK CARD -->
+        <div class="card risk-card">
+
+            <h3>YOUR HEART RISK</h3>
+
+            <div class="gauge">
+                <div class="gauge-fill" id="gaugeFill"></div>
+                <div class="gauge-center">
+                    <h2 id="riskPercent">0%</h2>
+                    <p id="riskLevel">Low</p>
+                </div>
+            </div>
+
+            <p class="risk-note">Based on your current inputs</p>
+
+        </div>
+
+
+        <!-- RIGHT IMPROVEMENT CARD -->
+        <div class="card improvement-card">
+
+            <h3>IMPROVE YOUR RISK</h3>
+
+            <div class="histogram">
+                <div class="bar-container">
+                    <div class="bar current-bar" id="currentBar"></div>
+                    <span>Current</span>
+                </div>
+
+                <div class="bar-container">
+                    <div class="bar improved-bar" id="improvedBar"></div>
+                    <span>After Improvement</span>
+                </div>
+            </div>
+
+            <h4 id="reductionText"></h4>
+            <p id="insightText"></p>
+
+        </div>
+
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/risk.js') }}"></script>
+
+{% endblock %}

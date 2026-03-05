@@ -1,21 +1,36 @@
 .about-page{
+    padding: 60px 0;
+    background: #f9fbff;
+    height: auto !important;
+    min-height: auto !important;
+    display: flex;
+    align-items: center;
+}
+
+body {
+    height: auto !important;
+    min-height: auto !important;
+}
+
+.about-container{
+    max-width:1200px;
+    margin: 0 auto;
     display:flex;
     align-items:center;
     justify-content:center;
-    padding:100px;
-    background: #f9fbff;
+    gap: 80px;
+    padding: 0 20px;
+    flex-wrap: wrap;
 }
 
 .about-left img{
-    width:650px;
+    width:100%;
+    max-width:570px;
     border-radius:12px;
-    display: block;
 }
 
 .about-right{
-    flex: 1;
-    padding-left:70px;
-    max-width:40%;
+    max-width:550px;
 }
 
 .about-right p{
