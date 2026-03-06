@@ -10,14 +10,10 @@ from sklearn.calibration import CalibratedClassifierCV
 from xgboost import XGBClassifier
 
 
-# ----------------------------
 # STEP 1: Load Cleaned Dataset
-# ----------------------------
 df = pd.read_csv("data/heart_data_clean_preprocessed.csv")
 
-# ----------------------------
 # STEP 2: Separate Features & Target
-# ----------------------------
 X = df.drop("HeartDisease", axis=1)
 y = df["HeartDisease"]
 
@@ -27,18 +23,14 @@ joblib.dump(X.columns.tolist(), "models/feature_names.pkl")
 # Save feature means
 joblib.dump(X.mean().to_dict(), "models/feature_means.pkl")
 
-# ----------------------------
 # STEP 3: Train Test Split
-# ----------------------------
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
 scale_pos_weight = len(y_train[y_train == 0]) / len(y_train[y_train == 1])
 
-# ----------------------------
 # STEP 4: Define Models
-# ----------------------------
 models = {
     "Logistic Regression": LogisticRegression(class_weight="balanced", max_iter=1000),
     "Random Forest": RandomForestClassifier(class_weight="balanced", n_estimators=200),
@@ -55,9 +47,7 @@ best_model = None
 best_score = 0
 best_model_name = ""
 
-# ----------------------------
 # STEP 5: Train & Compare
-# ----------------------------
 for name, model in models.items():
 
     model.fit(X_train, y_train)
@@ -81,18 +71,14 @@ print("\nBest Model Selected:", best_model_name)
 print("Best ROC-AUC:", round(best_score, 4))
 
 
-# ----------------------------
 # STEP 6: Calibrate Best Model
-# ----------------------------
 calibrated_model = CalibratedClassifierCV(best_model, method='isotonic', cv=5)
 calibrated_model.fit(X_train, y_train)
 
 best_model = calibrated_model
 
 
-# ----------------------------
 # STEP 7: Find Optimal Threshold
-# ----------------------------
 y_prob_best = best_model.predict_proba(X_test)[:, 1]
 
 best_threshold = 0
@@ -112,9 +98,8 @@ print("Best Threshold:", round(best_threshold, 3))
 print("Best F1 Score:", round(best_f1, 4))
 
 
-# ----------------------------
+
 # STEP 8: Save Final Model Bundle
-# ----------------------------
 joblib.dump(
     {
         "model": best_model,
