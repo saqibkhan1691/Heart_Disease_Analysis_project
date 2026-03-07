@@ -1,6 +1,6 @@
 # ❤️ Heart Disease Risk Analysis & Prediction System
 
-## 📌 Project Overview
+
 Heart disease remains one of the leading causes of mortality worldwide. Early detection of risk factors and preventive care play a crucial role in reducing cardiovascular risk.
 
 This project combines Data Analytics, Machine Learning, and Web Development to build a comprehensive Heart Disease Risk Analysis & Prediction System.
