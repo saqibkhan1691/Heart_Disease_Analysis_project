@@ -222,6 +222,12 @@ Possible future enhancements include:
 
 ### Saqib Khan
 
+## Team Members
+
+### Satyam Pandey
+### Shakib Khan
+### Satyam Shrivastav
+
 Computer Science Student
 Interested in Data Science, Machine Learning, and Data Analysis
 
