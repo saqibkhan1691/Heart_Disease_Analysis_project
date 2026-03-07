@@ -222,7 +222,7 @@ Possible future enhancements include:
 
 ### Saqib Khan
 
-## Team Members
+## 👥 Team Members
 
 ### Satyam Pandey
 ### Shakib Khan
