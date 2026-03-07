@@ -228,7 +228,4 @@ Possible future enhancements include:
 ### Shakib Khan
 ### Satyam Shrivastav
 
-Computer Science Student
-Interested in Data Science, Machine Learning, and Data Analysis
-
 ### ⭐ If you found this project interesting, consider giving it a star!
