@@ -1,4 +1,4 @@
-# ❤️ Heart Disease Risk Analysis & Prediction SystEm
+# ❤️ Heart Disease Risk Analysis & Prediction Syst
 
 ## 📌 Project Overview
 Heart disease remains one of the leading causes of mortality worldwide. Early detection of risk factors and preventive care play a crucial role in reducing cardiovascular risk.
