@@ -49,6 +49,9 @@ document.getElementById("riskLevel").innerText = result.category
 document.getElementById("currentBar").style.height = current*2 + "px"
 document.getElementById("improvedBar").style.height = improved*2 + "px"
 
+document.getElementById("currentPercent").innerText = current + "%"
+document.getElementById("improvedPercent").innerText = improved + "%"
+
 let reduction = (current-improved).toFixed(2)
 
 document.getElementById("reductionText").innerText =
