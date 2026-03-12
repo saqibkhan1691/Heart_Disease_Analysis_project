@@ -41,7 +41,6 @@ def get_started():
         "AlcoholDrinking",
         "Stroke",
         "DiffWalking",
-        "Sex",
         "Diabetic",
         "PhysicalActivity",
         "Asthma",
