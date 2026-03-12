@@ -16,29 +16,16 @@
 
 <div class="feature-list">
 
-<!-- Binary Features -->
-{% for feature in binary_features %}
-
-<div class="feature-item">
-<label>{{ feature }}</label>
-
-<input
-type="checkbox"
-class="feature-input"
-data-feature="{{ feature }}"
->
-
-</div>
-
-{% endfor %}
-
-
-<!-- Numeric Features -->
-{% for feature in numeric_features %}
+{% for feature in features %}
 
 <div class="feature-item">
 
 <label>{{ feature }}</label>
+
+{% if feature in [
+"BMI","PhysicalHealth","MentalHealth",
+"AgeCategory","GenHealth","SleepTime"
+] %}
 
 <input
 type="number"
@@ -47,6 +34,16 @@ placeholder="Enter value"
 class="feature-input"
 data-feature="{{ feature }}"
 >
+
+{% else %}
+
+<input
+type="checkbox"
+class="feature-input"
+data-feature="{{ feature }}"
+>
+
+{% endif %}
 
 </div>
 
@@ -61,24 +58,30 @@ Predict Risk
 </div>
 
 
-<!-- RISK CARD -->
+<!-- CENTER RISK CARD -->
+
 <div class="card risk-card">
 
 <h3>YOUR HEART RISK</h3>
 
 <div class="gauge">
 
-<div class="gauge-center">
+<div class="gauge-inner">
+
 <h2 id="riskPercent">0%</h2>
 <p id="riskLevel">Low</p>
-</div>
 
 </div>
 
 </div>
 
+<p class="risk-note">Based on your inputs</p>
 
-<!-- IMPROVEMENT -->
+</div>
+
+
+<!-- RIGHT PANEL -->
+
 <div class="card improvement-card">
 
 <h3>IMPROVE YOUR RISK</h3>
@@ -98,7 +101,8 @@ Predict Risk
 </div>
 
 <h4 id="reductionText"></h4>
-<p id="insightText"></p>
+
+<div id="insightText"></div>
 
 </div>
 

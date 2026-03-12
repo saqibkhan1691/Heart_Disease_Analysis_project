@@ -12,7 +12,9 @@ if(input.type === "checkbox"){
 
 data[feature] = input.checked ? 1 : 0
 
-}else{
+}
+
+else{
 
 if(input.value !== "")
 data[feature] = parseFloat(input.value)
@@ -20,6 +22,7 @@ data[feature] = parseFloat(input.value)
 }
 
 })
+
 
 fetch("/predict",{
 
@@ -49,17 +52,18 @@ document.getElementById("improvedBar").style.height = improved*2 + "px"
 let reduction = (current-improved).toFixed(2)
 
 document.getElementById("reductionText").innerText =
-"Risk reduced by " + reduction + "%"
+"Risk reduced by "+reduction+"%"
 
 
-let suggestionHTML = ""
+let html="<ul>"
 
-result.suggestions.forEach(s => {
-suggestionHTML += "<li>" + s + "</li>"
+result.suggestions.forEach(s=>{
+html+="<li>"+s+"</li>"
 })
 
-document.getElementById("insightText").innerHTML =
-"<ul>"+suggestionHTML+"</ul>"
+html+="</ul>"
+
+document.getElementById("insightText").innerHTML=html
 
 })
 

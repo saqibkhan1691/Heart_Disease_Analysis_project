@@ -1,107 +1,135 @@
-.main-container {
-    max-width: 1300px;
-    margin: 40px auto;
-    padding: 20px;
+.main-container{
+max-width:1300px;
+margin:40px auto;
+padding:20px;
 }
 
-.page-title {
-    text-align: center;
-    margin-bottom: 40px;
-    font-weight: 600;
+.page-title{
+text-align:center;
+margin-bottom:40px;
 }
 
-.layout {
-    display: flex;
-    gap: 30px;
+.layout{
+display:flex;
+gap:30px;
 }
 
-.card {
-    background: white;
-    border-radius: 16px;
-    padding: 25px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    flex: 1;
+.card{
+background:white;
+border-radius:16px;
+padding:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+flex:1;
 }
 
 /* LEFT PANEL */
 
-.feature-card {
-    max-width: 320px;
+.feature-card{
+max-width:320px;
 }
 
-.feature-list {
-    max-height: 350px;
-    overflow-y: auto;
-    margin-top: 10px;
+.feature-list{
+max-height:380px;
+overflow-y:auto;
+margin-top:10px;
 }
 
-.feature-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
+.feature-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:12px;
 }
 
-.feature-item input {
-    width: 110px;
-    padding: 5px;
+.feature-item input{
+width:110px;
+padding:5px;
 }
 
-.primary-btn {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 8px;
-    background: #2d6cdf;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    margin-top: 15px;
-}
-
-
-/* RISK GAUGE */
-
-.risk-card {
-    text-align: center;
-}
-
-.gauge {
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    background: conic-gradient(#2ecc71 0%, #f1c40f 50%, #e74c3c 100%);
-    margin: 20px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.gauge-center {
-    text-align: center;
+.primary-btn{
+width:100%;
+padding:10px;
+border:none;
+border-radius:8px;
+background:#2d6cdf;
+color:white;
+font-weight:600;
+cursor:pointer;
+margin-top:15px;
 }
 
 
-/* HISTOGRAM */
+/* GAUGE */
 
-.histogram {
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
-    height: 200px;
-    margin-top: 20px;
+.risk-card{
+text-align:center;
 }
 
-.bar {
-    width: 60px;
-    border-radius: 6px;
-    transition: height 0.6s ease;
+.gauge{
+
+width:220px;
+height:220px;
+border-radius:50%;
+
+background:
+conic-gradient(
+#2ecc71 0%,
+#f1c40f 50%,
+#e74c3c 100%
+);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+margin:20px auto;
+
 }
 
-.current-bar {
-    background: #f39c12;
+.gauge-inner{
+
+width:160px;
+height:160px;
+background:white;
+border-radius:50%;
+
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+
 }
 
-.improved-bar {
-    background: #27ae60;
+.risk-note{
+font-size:14px;
+color:#777;
+}
+
+
+/* IMPROVEMENT */
+
+.histogram{
+display:flex;
+justify-content:space-around;
+align-items:flex-end;
+height:200px;
+margin-top:20px;
+}
+
+.bar{
+width:60px;
+border-radius:6px;
+transition:height .6s ease;
+}
+
+.current-bar{
+background:#f39c12;
+}
+
+.improved-bar{
+background:#27ae60;
+}
+
+#insightText ul{
+padding-left:18px;
 }
