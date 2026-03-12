@@ -14,7 +14,7 @@ from xgboost import XGBClassifier
 df = pd.read_csv("data/heart_data_clean_preprocessed.csv")
 
 # STEP 2: Separate Features & Target
-X = df.drop("HeartDisease", axis=1)
+X = df.drop(["HeartDisease", "Sex"], axis=1)
 y = df["HeartDisease"]
 
 # Save feature names
