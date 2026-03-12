@@ -35,8 +35,39 @@ def contact():
 
 @app.route("/get_started")
 def get_started():
-    features = joblib.load("models/feature_names.pkl")
-    return render_template("get_started.html", features=features)
+
+    binary_features = [
+        "Smoking",
+        "AlcoholDrinking",
+        "Stroke",
+        "Diabetic",
+        "PhysicalActivity",
+        "Asthma",
+        "KidneyDisease",
+        "SkinCancer"
+    ]
+
+    numeric_features = [
+        "BMI",
+        "PhysicalHealth",
+        "MentalHealth",
+        "DiffWalking",
+        "Sex",
+        "AgeCategory",
+        "GenHealth",
+        "SleepTime",
+        "Race_Asian",
+        "Race_Black",
+        "Race_Hispanic",
+        "Race_Other",
+        "Race_White"
+    ]
+
+    return render_template(
+        "get_started.html",
+        binary_features=binary_features,
+        numeric_features=numeric_features
+    )
 
 
 

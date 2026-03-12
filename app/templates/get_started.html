@@ -5,101 +5,105 @@
 
 <div class="main-container">
 
-    <h1 class="page-title">Heart Disease Risk Prediction</h1>
+<h1 class="page-title">Heart Disease Risk Prediction</h1>
 
-    <div class="layout">
+<div class="layout">
 
-        <!-- LEFT PANEL -->
-        <div class="card feature-card">
+<!-- LEFT PANEL -->
+<div class="card feature-card">
 
-            <h3>Enter Health Factors</h3>
-            <p class="sub-text">Fill the values for prediction</p>
+<h3>Select Factors</h3>
 
-            <div class="feature-list">
+<div class="feature-list">
 
-                {% for feature in features %}
+<!-- Binary Features -->
+{% for feature in binary_features %}
 
-                <div class="feature-item">
+<div class="feature-item">
+<label>{{ feature }}</label>
 
-                    <label>{{ feature }}</label>
+<input
+type="checkbox"
+class="feature-input"
+data-feature="{{ feature }}"
+>
 
-                    {% if feature in [
-                    "Smoking","AlcoholDrinking","Stroke",
-                    "Diabetic","PhysicalActivity",
-                    "Asthma","KidneyDisease","SkinCancer"
-                    ] %}
+</div>
 
-                    <input type="checkbox"
-                           class="feature-input"
-                           data-feature="{{ feature }}">
-
-                    {% else %}
-
-                    <input type="number"
-                           step="any"
-                           placeholder="Enter value"
-                           class="feature-input"
-                           data-feature="{{ feature }}">
-
-                    {% endif %}
-
-                </div>
-
-                {% endfor %}
-
-            </div>
-
-            <button id="predictBtn" class="primary-btn">
-                Predict Risk
-            </button>
-
-        </div>
+{% endfor %}
 
 
-        <!-- CENTER RISK CARD -->
-        <div class="card risk-card">
+<!-- Numeric Features -->
+{% for feature in numeric_features %}
 
-            <h3>YOUR HEART RISK</h3>
+<div class="feature-item">
 
-            <div class="gauge">
+<label>{{ feature }}</label>
 
-                <div class="gauge-center">
-                    <h2 id="riskPercent">0%</h2>
-                    <p id="riskLevel">Low</p>
-                </div>
+<input
+type="number"
+step="any"
+placeholder="Enter value"
+class="feature-input"
+data-feature="{{ feature }}"
+>
 
-            </div>
+</div>
 
-            <p class="risk-note">Based on your inputs</p>
+{% endfor %}
 
-        </div>
+</div>
+
+<button id="predictBtn" class="primary-btn">
+Predict Risk
+</button>
+
+</div>
 
 
-        <!-- RIGHT IMPROVEMENT CARD -->
-        <div class="card improvement-card">
+<!-- RISK CARD -->
+<div class="card risk-card">
 
-            <h3>IMPROVE YOUR RISK</h3>
+<h3>YOUR HEART RISK</h3>
 
-            <div class="histogram">
+<div class="gauge">
 
-                <div class="bar-container">
-                    <div class="bar current-bar" id="currentBar"></div>
-                    <span>Current</span>
-                </div>
+<div class="gauge-center">
+<h2 id="riskPercent">0%</h2>
+<p id="riskLevel">Low</p>
+</div>
 
-                <div class="bar-container">
-                    <div class="bar improved-bar" id="improvedBar"></div>
-                    <span>After Improvement</span>
-                </div>
+</div>
 
-            </div>
+</div>
 
-            <h4 id="reductionText"></h4>
-            <p id="insightText"></p>
 
-        </div>
+<!-- IMPROVEMENT -->
+<div class="card improvement-card">
 
-    </div>
+<h3>IMPROVE YOUR RISK</h3>
+
+<div class="histogram">
+
+<div class="bar-container">
+<div class="bar current-bar" id="currentBar"></div>
+<span>Current</span>
+</div>
+
+<div class="bar-container">
+<div class="bar improved-bar" id="improvedBar"></div>
+<span>After Improvement</span>
+</div>
+
+</div>
+
+<h4 id="reductionText"></h4>
+<p id="insightText"></p>
+
+</div>
+
+</div>
+
 </div>
 
 <script src="{{ url_for('static', filename='js/risk.js') }}"></script>

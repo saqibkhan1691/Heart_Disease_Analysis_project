@@ -38,62 +38,63 @@
 
 
 
+
 document.getElementById("predictBtn").addEventListener("click", function () {
 
-    const inputs = document.querySelectorAll(".feature-input")
+const inputs = document.querySelectorAll(".feature-input")
 
-    const data = {}
+const data = {}
 
-    inputs.forEach(input => {
+inputs.forEach(input => {
 
-        const feature = input.dataset.feature
+const feature = input.dataset.feature
 
-        if (input.type === "checkbox") {
+if(input.type === "checkbox"){
 
-            data[feature] = input.checked ? 1 : 0
+data[feature] = input.checked ? 1 : 0
 
-        } else {
+}else{
 
-            if (input.value !== "") {
-                data[feature] = parseFloat(input.value)
-            }
+if(input.value !== "")
+data[feature] = parseFloat(input.value)
 
-        }
+}
 
-    })
+})
 
+fetch("/predict",{
 
-    fetch("/predict", {
+method:"POST",
 
-        method: "POST",
+headers:{
+"Content-Type":"application/json"
+},
 
-        headers: {
-            "Content-Type": "application/json"
-        },
+body:JSON.stringify(data)
 
-        body: JSON.stringify(data)
+})
 
-    })
-    .then(res => res.json())
-    .then(result => {
+.then(res => res.json())
 
-        let current = result.probability
-        let improved = result.improved_probability
+.then(result => {
 
-        document.getElementById("riskPercent").innerText = current + "%"
-        document.getElementById("riskLevel").innerText = result.category
+let current = result.probability
+let improved = result.improved_probability
 
-        document.getElementById("currentBar").style.height = current * 2 + "px"
-        document.getElementById("improvedBar").style.height = improved * 2 + "px"
+document.getElementById("riskPercent").innerText = current + "%"
+document.getElementById("riskLevel").innerText = result.category
 
-        let reduction = (current - improved).toFixed(2)
+document.getElementById("currentBar").style.height = current*2 + "px"
+document.getElementById("improvedBar").style.height = improved*2 + "px"
 
-        document.getElementById("reductionText").innerText =
-            "Risk reduced by " + reduction + "%"
+let reduction = (current-improved).toFixed(2)
 
-        document.getElementById("insightText").innerText =
-            "Improving lifestyle factors may reduce heart disease risk."
+document.getElementById("reductionText").innerText =
+"Risk reduced by " + reduction + "%"
 
-    })
+document.getElementById("insightText").innerText =
+"Improving lifestyle factors may reduce heart disease risk."
+
+})
 
 })
