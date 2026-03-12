@@ -80,9 +80,11 @@ def predict():
     data = request.json
 
     result = predict_risk(data)
-    improved = simulate_improvement(data)
 
-    result["improved_probability"] = improved
+    improvement = simulate_improvement(data)
+
+    result["improved_probability"] = improvement["improved_probability"]
+    result["suggestions"] = improvement["suggestions"]
 
     return jsonify(result)
 
