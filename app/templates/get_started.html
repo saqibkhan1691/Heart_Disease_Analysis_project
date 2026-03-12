@@ -12,20 +12,45 @@
         <!-- LEFT PANEL -->
         <div class="card feature-card">
 
-            <h3>Select Factors to Predict</h3>
-            <p class="sub-text">Choose lifestyle factors you'd like to consider:</p>
+            <h3>Enter Health Factors</h3>
+            <p class="sub-text">Fill the values for prediction</p>
 
-            <div class="feature-list" id="featureList">
+            <div class="feature-list">
+
                 {% for feature in features %}
-                <label class="feature-item">
-                    <input type="checkbox" value="{{ feature }}" class="improve-check">
-                    <span>{{ feature }}</span>
-                </label>
+
+                <div class="feature-item">
+
+                    <label>{{ feature }}</label>
+
+                    {% if feature in [
+                    "Smoking","AlcoholDrinking","Stroke",
+                    "Diabetic","PhysicalActivity",
+                    "Asthma","KidneyDisease","SkinCancer"
+                    ] %}
+
+                    <input type="checkbox"
+                           class="feature-input"
+                           data-feature="{{ feature }}">
+
+                    {% else %}
+
+                    <input type="number"
+                           step="any"
+                           placeholder="Enter value"
+                           class="feature-input"
+                           data-feature="{{ feature }}">
+
+                    {% endif %}
+
+                </div>
+
                 {% endfor %}
+
             </div>
 
-            <button id="simulateBtn" class="primary-btn">
-                Simulate Improvement
+            <button id="predictBtn" class="primary-btn">
+                Predict Risk
             </button>
 
         </div>
@@ -37,14 +62,15 @@
             <h3>YOUR HEART RISK</h3>
 
             <div class="gauge">
-                <div class="gauge-fill" id="gaugeFill"></div>
+
                 <div class="gauge-center">
                     <h2 id="riskPercent">0%</h2>
                     <p id="riskLevel">Low</p>
                 </div>
+
             </div>
 
-            <p class="risk-note">Based on your current inputs</p>
+            <p class="risk-note">Based on your inputs</p>
 
         </div>
 
@@ -55,6 +81,7 @@
             <h3>IMPROVE YOUR RISK</h3>
 
             <div class="histogram">
+
                 <div class="bar-container">
                     <div class="bar current-bar" id="currentBar"></div>
                     <span>Current</span>
@@ -64,6 +91,7 @@
                     <div class="bar improved-bar" id="improvedBar"></div>
                     <span>After Improvement</span>
                 </div>
+
             </div>
 
             <h4 id="reductionText"></h4>

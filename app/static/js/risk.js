@@ -38,16 +38,30 @@
 
 
 
+document.getElementById("predictBtn").addEventListener("click", function () {
 
+    const inputs = document.querySelectorAll(".feature-input")
 
-document.getElementById("simulateBtn").addEventListener("click", function () {
+    const data = {}
 
-    const selected = {}
+    inputs.forEach(input => {
 
-    document.querySelectorAll(".improve-check:checked")
-    .forEach(cb => {
-        selected[cb.value] = 1
+        const feature = input.dataset.feature
+
+        if (input.type === "checkbox") {
+
+            data[feature] = input.checked ? 1 : 0
+
+        } else {
+
+            if (input.value !== "") {
+                data[feature] = parseFloat(input.value)
+            }
+
+        }
+
     })
+
 
     fetch("/predict", {
 
@@ -57,29 +71,28 @@ document.getElementById("simulateBtn").addEventListener("click", function () {
             "Content-Type": "application/json"
         },
 
-        body: JSON.stringify(selected)
+        body: JSON.stringify(data)
 
     })
-
     .then(res => res.json())
+    .then(result => {
 
-    .then(data => {
-
-        let current = data.probability
-        let improved = data.improved_probability
-        let reduction = (current - improved).toFixed(2)
+        let current = result.probability
+        let improved = result.improved_probability
 
         document.getElementById("riskPercent").innerText = current + "%"
-        document.getElementById("riskLevel").innerText = data.category
+        document.getElementById("riskLevel").innerText = result.category
 
         document.getElementById("currentBar").style.height = current * 2 + "px"
         document.getElementById("improvedBar").style.height = improved * 2 + "px"
+
+        let reduction = (current - improved).toFixed(2)
 
         document.getElementById("reductionText").innerText =
             "Risk reduced by " + reduction + "%"
 
         document.getElementById("insightText").innerText =
-            "Improving selected lifestyle factors may reduce heart disease risk."
+            "Improving lifestyle factors may reduce heart disease risk."
 
     })
 
