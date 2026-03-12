@@ -47,7 +47,6 @@ def predict_risk(user_input):
         "color": color
     }
 
-
 def simulate_improvement(user_input):
 
     suggestions = []
@@ -56,14 +55,13 @@ def simulate_improvement(user_input):
     base_prob = model.predict_proba(base_df)[0][1]
 
     improved_input = user_input.copy()
-
-    total_reduction = 0
+    improved_prob = base_prob
 
     for feature in user_input:
 
         original_value = user_input[feature]
 
-        # Binary features
+        # Binary feature
         if original_value == 1:
 
             improved_input[feature] = 0
@@ -79,12 +77,9 @@ def simulate_improvement(user_input):
                     f"Reducing {feature} may lower risk by {round(reduction*100,2)}%"
                 )
 
-                total_reduction += reduction
+                improved_prob = new_prob
 
             improved_input[feature] = original_value
-
-
-    improved_prob = max(base_prob - total_reduction, 0)
 
     return {
         "improved_probability": round(improved_prob * 100, 2),
