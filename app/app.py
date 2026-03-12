@@ -1,3 +1,6 @@
+import sys
+import os
+
 from models.predict import predict_risk, simulate_improvement
 
 from flask import request, jsonify
