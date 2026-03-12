@@ -10,22 +10,39 @@
 <div class="layout">
 
 <!-- LEFT PANEL -->
+ 
 <div class="card feature-card">
 
 <h3>Select Factors</h3>
 
 <div class="feature-list">
 
-{% for feature in features %}
+<!-- Binary Features -->
+
+{% for feature in binary_features %}
 
 <div class="feature-item">
 
 <label>{{ feature }}</label>
 
-{% if feature in [
-"BMI","PhysicalHealth","MentalHealth",
-"AgeCategory","GenHealth","SleepTime"
-] %}
+<input
+type="checkbox"
+class="feature-input"
+data-feature="{{ feature }}"
+>
+
+</div>
+
+{% endfor %}
+
+
+<!-- Numeric Features -->
+
+{% for feature in numeric_features %}
+
+<div class="feature-item">
+
+<label>{{ feature }}</label>
 
 <input
 type="number"
@@ -35,19 +52,10 @@ class="feature-input"
 data-feature="{{ feature }}"
 >
 
-{% else %}
-
-<input
-type="checkbox"
-class="feature-input"
-data-feature="{{ feature }}"
->
-
-{% endif %}
-
 </div>
 
 {% endfor %}
+
 
 </div>
 
@@ -56,6 +64,7 @@ Predict Risk
 </button>
 
 </div>
+
 
 
 <!-- CENTER RISK CARD -->

@@ -54,7 +54,6 @@ def get_started():
         "Race_Hispanic",
         "Race_Other",
         "Race_White"
-
     ]
 
 
@@ -66,7 +65,6 @@ def get_started():
         "AgeCategory",
         "GenHealth",
         "SleepTime"
-
     ]
 
 
