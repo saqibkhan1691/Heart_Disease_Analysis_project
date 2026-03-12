@@ -37,7 +37,6 @@ def contact():
 def get_started():
 
     binary_features = [
-
         "Smoking",
         "AlcoholDrinking",
         "Stroke",
@@ -48,7 +47,6 @@ def get_started():
         "Asthma",
         "KidneyDisease",
         "SkinCancer",
-
         "Race_Asian",
         "Race_Black",
         "Race_Hispanic",
@@ -56,9 +54,7 @@ def get_started():
         "Race_White"
     ]
 
-
     numeric_features = [
-
         "BMI",
         "PhysicalHealth",
         "MentalHealth",
@@ -66,7 +62,6 @@ def get_started():
         "GenHealth",
         "SleepTime"
     ]
-
 
     return render_template(
         "get_started.html",
