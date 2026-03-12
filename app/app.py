@@ -37,39 +37,44 @@ def contact():
 def get_started():
 
     binary_features = [
+
         "Smoking",
         "AlcoholDrinking",
         "Stroke",
+        "DiffWalking",
+        "Sex",
         "Diabetic",
         "PhysicalActivity",
         "Asthma",
         "KidneyDisease",
-        "SkinCancer"
-    ]
+        "SkinCancer",
 
-    numeric_features = [
-        "BMI",
-        "PhysicalHealth",
-        "MentalHealth",
-        "DiffWalking",
-        "Sex",
-        "AgeCategory",
-        "GenHealth",
-        "SleepTime",
         "Race_Asian",
         "Race_Black",
         "Race_Hispanic",
         "Race_Other",
         "Race_White"
+
     ]
+
+
+    numeric_features = [
+
+        "BMI",
+        "PhysicalHealth",
+        "MentalHealth",
+        "AgeCategory",
+        "GenHealth",
+        "SleepTime"
+
+    ]
+
 
     return render_template(
         "get_started.html",
         binary_features=binary_features,
         numeric_features=numeric_features
     )
-
-
 
 
 # ML API ROUTE
