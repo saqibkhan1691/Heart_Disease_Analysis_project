@@ -133,3 +133,9 @@ background:#27ae60;
 #insightText ul{
 padding-left:18px;
 }
+
+.percent-text{
+    font-weight:600;
+    margin-bottom:6px;
+    display:block;
+}
