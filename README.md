@@ -228,4 +228,4 @@ Possible future enhancements include:
 ### Shakib Khan
 ### Satyam Shrivastav
 
-### ⭐ If you found this project interesting, consider giving it a star!
+#### ⭐ If you found this project interesting, consider giving it a star!
