@@ -57,6 +57,8 @@ def simulate_improvement(user_input):
 
     improved_input = user_input.copy()
 
+    total_reduction = 0
+
     for feature in user_input:
 
         original_value = user_input[feature]
@@ -69,40 +71,20 @@ def simulate_improvement(user_input):
             df = prepare_input(improved_input)
             new_prob = model.predict_proba(df)[0][1]
 
-            reduction = (base_prob - new_prob) * 100
+            reduction = base_prob - new_prob
 
             if reduction > 0:
 
                 suggestions.append(
-                    f"Reducing {feature} may lower risk by {round(reduction,2)}%"
+                    f"Reducing {feature} may lower risk by {round(reduction*100,2)}%"
                 )
+
+                total_reduction += reduction
 
             improved_input[feature] = original_value
 
 
-        # Numeric features
-        elif isinstance(original_value, (int, float)):
-
-            improved_value = feature_means[feature]
-
-            improved_input[feature] = improved_value
-
-            df = prepare_input(improved_input)
-            new_prob = model.predict_proba(df)[0][1]
-
-            reduction = (base_prob - new_prob) * 100
-
-            if reduction > 0:
-
-                suggestions.append(
-                    f"Improving {feature} towards {round(improved_value,2)} may reduce risk by {round(reduction,2)}%"
-                )
-
-            improved_input[feature] = original_value
-
-
-    final_df = prepare_input(improved_input)
-    improved_prob = model.predict_proba(final_df)[0][1]
+    improved_prob = max(base_prob - total_reduction, 0)
 
     return {
         "improved_probability": round(improved_prob * 100, 2),
